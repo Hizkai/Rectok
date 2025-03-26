@@ -49,7 +49,7 @@ def cal_kl(item2sid, idx):
     kl_div = np.sum(np.where(P != 0, P * np.log(P / Q), 0))
     return kl_div
 
-def top_indices(matrix, len_sid, colli=False):
+def top_indices(matrix, len_sid):
     result = []
     ditem2sid = {}
     item2sid = {}
