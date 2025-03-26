@@ -120,31 +120,19 @@ def diversity_loss(embeddings, k=4):
     # 获取每行的前3个最大值及其索引
     values, indices = torch.topk(embeddings, k, dim=-1)
     
-    # 提取第2和第3大的值及其索引
-    first_values = values[:, 1]
-    second_values = values[:, 2]
-    third_values = values[:, 3]
     fourth_values = values[:, 4]
     
-    first_indices = indices[:, 1]
-    second_indices = indices[:, 2]
-    third_indices = indices[:, 3]
     fourth_indices = indices[:, 4]
 
     # 初始化一个零张量
     result = torch.zeros_like(embeddings)
 
-    # 使用scatter_方法填入第2和第3大的值
-    # result.scatter_(-1, first_indices.unsqueeze(-1), second_values.unsqueeze(-1))
-    # result.scatter_(-1, second_indices.unsqueeze(-1), second_values.unsqueeze(-1))
-    # result.scatter_(-1, third_indices.unsqueeze(-1), third_values.unsqueeze(-1))
     result.scatter_(-1, fourth_indices.unsqueeze(-1), fourth_values.unsqueeze(-1))
     
     # 计算余弦相似度矩阵
     cosine_similarity_matrix = torch.matmul(result, result.t())
     
     # 构建对角矩阵
-    # identity_matrix = torch.eye(result.size(0)).to(result.device)
     diagonal_elements = torch.diag(cosine_similarity_matrix)
     identity_matrix = torch.zeros_like(cosine_similarity_matrix)
     for i in range(cosine_similarity_matrix.shape[0]):
