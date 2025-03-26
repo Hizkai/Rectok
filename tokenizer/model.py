@@ -34,7 +34,7 @@ class TiedTranspose(nn.Module):
         return self.linear.bias
 
 class SparseAutoencoder(nn.Module):
-    def __init__(self, txt_dim, clusters, hidden_dim, beta, gamma, activation = 'topk', topk = 256, tied = False, normalize = True, kmeans=False):
+    def __init__(self, txt_dim, clusters, hidden_dim, activation = 'topk', topk = 256, tied = False, normalize = True):
         super(SparseAutoencoder, self).__init__()
 
         self.txt_dim = txt_dim
@@ -52,9 +52,6 @@ class SparseAutoencoder(nn.Module):
 
         self.topk = topk
         self.normalize = normalize
-        self.beta = beta
-
-        self.gamma = gamma # 控制 h_txt 和 h_sr 比重
 
         self.act = activation
     
