@@ -1,5 +1,5 @@
 python ../tokenizer/main.py \
-    --data_name Instruments \
+    --data_name Baby \
     --gpu_id 0 \
     --epochs 100 \
     --patience 200 \
@@ -8,5 +8,5 @@ python ../tokenizer/main.py \
     --alpha 0.001 \
     --num_codes 1024 \
     --tau 0.25 \
-    --L 5 \
+    --L 6 \
     --normalize \

@@ -1,14 +1,12 @@
-# export CUDA_LAUNCH_BLOCKING=1
-python3 ../tokenizer/main.py \
-    --data_name Games23 \
+python ../tokenizer/main.py \
+    --data_name Games \
     --gpu_id 0 \
+    --epochs 100 \
+    --patience 200 \
+    --batch_size 1024 \
     --lr 1e-4 \
-    --loss_func div \
-    --alpha 1.0 \
-    --beta 0.001 \
-    --hidden_dim 1024 \
-    --activation topk \
-    --output_label sae \
-    --div_k 5 \
-    --tied \
+    --alpha 0.001 \
+    --num_codes 1024 \
+    --tau 0.25 \
+    --L 5 \
     --normalize \
