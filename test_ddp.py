@@ -104,9 +104,7 @@ def test_ddp(args):
                 targets = batch[1]
                 bs = len(targets)
                 num_beams = args.num_beams
-                while True:
-                    try:
-                        output = model.module.generate(
+                output = model.module.generate(
                             input_ids=inputs["input_ids"],
                             attention_mask=inputs["attention_mask"],
                             max_new_tokens=10,
@@ -118,13 +116,6 @@ def test_ddp(args):
                             return_dict_in_generate=True,
                             early_stopping=True,
                         )
-                        break
-                    except torch.cuda.OutOfMemoryError as e:
-                        print("Out of memory!")
-                        num_beams = num_beams -1
-                        print("Beam:", num_beams)
-                    except Exception:
-                        raise RuntimeError
 
                 output_ids = output["sequences"]
                 scores = output["sequences_scores"]
