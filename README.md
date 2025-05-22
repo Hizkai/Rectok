@@ -8,10 +8,11 @@ pip install -r requirements.txt
 ```
 
 ### Dataset
-- download: [link](https://huggingface.co/datasets/hizkai/text_embeddings)
+- download: [text embeddings](https://huggingface.co/datasets/hizkai/text_embeddings)
 ```
-unzip them and move to dataset/
+unzip them and move to dataset/ and run tokenization 
 ```
+alternatively you can directly sft with the existed index files 
 
 ### Tokenizaion
 ```
