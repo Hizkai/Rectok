@@ -8,7 +8,7 @@ seqrec_prompt = []
 
 #####——0
 prompt = {}
-prompt["instruction"] = "The user has interacted with items {inters} in chronological order. Can you predict the next possible item that the user may expect?"
+prompt["instruction"] = "Here are the user's historical interactions: {inters}, try to recommend another item to the user. Note that the historical interactions are arranged in chronological order."
 prompt["response"] = "{item}"
 seqrec_prompt.append(prompt)
 
@@ -20,7 +20,7 @@ seqrec_prompt.append(prompt)
 
 #####——2
 prompt = {}
-prompt["instruction"] = "Here are the user's historical interactions: {inters}, try to recommend another item to the user. Note that the historical interactions are arranged in chronological order."
+prompt["instruction"] = "The user has interacted with items {inters} in chronological order. Can you predict the next possible item that the user may expect?"
 prompt["response"] = "{item}"
 seqrec_prompt.append(prompt)
 
