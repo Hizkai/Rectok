@@ -109,7 +109,6 @@ def test_ddp(args):
                             attention_mask=inputs["attention_mask"],
                             max_new_tokens=10,
                             do_sample=False,
-                            # prefix_allowed_tokens_fn=prefix_allowed_tokens,
                             num_beams=num_beams,
                             num_return_sequences=num_beams,
                             output_scores=True,
