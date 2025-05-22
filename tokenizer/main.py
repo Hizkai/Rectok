@@ -23,7 +23,6 @@ def parse_args():
 
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--epochs', type=int, default=500, help='number of epochs')
-    parser.add_argument('--patience', type=int, default=2)
     parser.add_argument('--batch_size', type=int, default=1024, help='batch size')
     parser.add_argument('--lr', type=float, default=1e-3)
     parser.add_argument('--weight_decay', type=float, default=1e-5)
@@ -78,8 +77,8 @@ if __name__ == '__main__':
             x_hat, c = model(x)
             recon_loss = nn.functional.mse_loss(x_hat, x, reduction='mean')
             div_loss = diversity_loss(c, args.L)
-            orth_loss = args.alpha * orthogonal_loss(model.encoder.weight)
-            loss = recon_loss + div_loss + orth_loss
+            orth_loss = orthogonal_loss(model.encoder.weight)
+            loss = recon_loss + div_loss + args.alpha * orth_loss
             total_loss += loss.item()
 
             loss.backward()
@@ -114,6 +113,8 @@ if __name__ == '__main__':
     with open(os.path.join(args.data_dir, args.data_name, f'{args.data_name}.index.json'), 'w') as f:
         json.dump(ditem2sid, f)
     ditem2sid_add = add_ID(ditem2sid)
+    
+    # optional
     print('Add additional token')
     item_set = set()
     for k, v in ditem2sid_add.items():

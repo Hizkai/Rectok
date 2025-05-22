@@ -95,7 +95,7 @@ def parse_test_args(parser):
                         help="GPU ID when testing with single GPU")
     parser.add_argument("--test_prompt_ids", type=str, default="0",
                         help="test prompt ids, separate by comma. 'all' represents using all")
-    parser.add_argument("--metrics", type=str, default="hit@1,hit@3,hit@5,hit@10,ndcg@3,ndcg@5,ndcg@10",
+    parser.add_argument("--metrics", type=str, default="hit@1,hit@3,hit@5,ndcg@3,ndcg@5",
                         help="test metrics, separate by comma")
 
 
