@@ -8,7 +8,7 @@ pip install -r requirements.txt
 ```
 
 ### Dataset
-- download: [text embeddings](https://huggingface.co/datasets/hizkai/text_embeddings) [Base model](https://huggingface.co/meta-llama/Llama-3.2-1B) 
+- Download: [text embeddings](https://huggingface.co/datasets/hizkai/text_embeddings) 
 ```
 unzip them and move to dataset/ and run tokenization 
 ```
@@ -24,6 +24,7 @@ bash get_games_token.sh
 bash get_baby_token.sh 
 ``` 
 ### SFT
+- Download: [Base model](https://huggingface.co/meta-llama/Llama-3.2-1B) 
 ``` 
 cd Rectok/shell 
 
