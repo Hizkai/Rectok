@@ -22,9 +22,9 @@ def parse_args():
     parser.add_argument('--data_name', type=str, default='Games')
 
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--epochs', type=int, default=500, help='number of epochs')
+    parser.add_argument('--epochs', type=int, default=200, help='number of epochs')
     parser.add_argument('--batch_size', type=int, default=1024, help='batch size')
-    parser.add_argument('--lr', type=float, default=1e-3)
+    parser.add_argument('--lr', type=float, default=1e-4)
     parser.add_argument('--weight_decay', type=float, default=1e-5)
     parser.add_argument('--warmup_epochs', type=int, default=20)
 
@@ -114,7 +114,7 @@ if __name__ == '__main__':
         json.dump(ditem2sid, f)
     ditem2sid_add = add_ID(ditem2sid)
     
-    # optional
+    # optional, in case the collision rate is large than 0.03
     print('Add additional token')
     item_set = set()
     for k, v in ditem2sid_add.items():
