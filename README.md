@@ -12,7 +12,7 @@ pip install -r requirements.txt
 ```
 unzip them and move to dataset/ and run tokenization 
 ```
-alternatively you can directly sft with the existed index files 
+alternatively you can directly run SFT with the existed index files 
 
 ### Tokenizaion
 ```
