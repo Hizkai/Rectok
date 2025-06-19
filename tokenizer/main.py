@@ -112,16 +112,17 @@ if __name__ == '__main__':
 
     with open(os.path.join(args.data_dir, args.data_name, f'{args.data_name}.index.json'), 'w') as f:
         json.dump(ditem2sid, f)
-    ditem2sid_add = add_ID(ditem2sid)
+    
     
     # optional, in case the collision rate is large than 0.03
-    print('Add additional token')
-    item_set = set()
-    for k, v in ditem2sid_add.items():
-        item_set.add(''.join(v))
-    print(f"Num_items: {data.shape[0]}, Num_items_sid: {len(item_set)}, Cover Rate: {100 * len(item_set)/data.shape[0]:.4f}%")
-    with open(os.path.join(args.data_dir, args.data_name, f'{args.data_name}.addid.index.json'), 'w') as f:
-        json.dump(ditem2sid_add, f)
+    # ditem2sid_add = add_ID(ditem2sid)
+    # print('Add additional token')
+    # item_set = set()
+    # for k, v in ditem2sid_add.items():
+    #     item_set.add(''.join(v))
+    # print(f"Num_items: {data.shape[0]}, Num_items_sid: {len(item_set)}, Cover Rate: {100 * len(item_set)/data.shape[0]:.4f}%")
+    # with open(os.path.join(args.data_dir, args.data_name, f'{args.data_name}.addid.index.json'), 'w') as f:
+    #     json.dump(ditem2sid_add, f)
     print('Done')
 
 
